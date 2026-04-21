@@ -1,0 +1,21 @@
+{
+  "builds": [
+    {
+      "src": "my_web_platform/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "my_web_platform/wsgi.py"
+    }
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "my_web_platform.settings"
+  }
+}
